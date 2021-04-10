@@ -6,7 +6,7 @@ checkSaved()
 //adding new tasks when you click submit
 const input =  document.querySelector('#task-form').addEventListener('submit', function(e){
     e.preventDefault()
-    console.log(e)
+    // console.log(e)
     if(e.target.elements.task.value != ''){
         taskList.push({
             id: uuidv4(),
@@ -15,6 +15,7 @@ const input =  document.querySelector('#task-form').addEventListener('submit', f
             addTask(taskList)
              //save each task added to local storage as a string
              localStorage.setItem('task', JSON.stringify(taskList))
+             console.log(taskList)
     }
 
     
@@ -57,7 +58,7 @@ document.querySelector('.clear-tasks').addEventListener('click',function(e){
 document.querySelector('#filter').addEventListener('input',function(e){
     const input = e.target.value.toLowerCase()
     filter.text = input
-        console.log(filter.text)
+        // console.log(filter.text)
         renderFilter(taskList, input)
 })
 
