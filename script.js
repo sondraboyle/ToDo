@@ -6,7 +6,7 @@ checkSaved()
 //adding new tasks when you click submit
 const input =  document.querySelector('#task-form').addEventListener('submit', function(e){
     e.preventDefault()
-    // console.log(e)
+    
     if(e.target.elements.task.value != ''){
         taskList.push({
             id: uuidv4(),
@@ -15,7 +15,7 @@ const input =  document.querySelector('#task-form').addEventListener('submit', f
             addTask(taskList)
              //save each task added to local storage as a string
              localStorage.setItem('task', JSON.stringify(taskList))
-             console.log(taskList)
+            
     }
 
     
@@ -30,12 +30,12 @@ document.querySelector('#theList').addEventListener('click',function(e){
         
     }
     //remove this item from the Array as well
-    deleteThis = e.target.parentElement.parentElement.innerText
-
-    let index = taskList.findIndex(function(array){
-        return array.text === deleteThis})
+   let id = e.target.parentElement.parentElement.id
+    let taskId = taskList.findIndex(function (array){
+        return array.id === id
+    })
+    taskList.splice(taskId, 1)
     
-    taskList.splice(index, 1)
 
    //make local storage = the new array
    localStorage.setItem('task', JSON.stringify(taskList))

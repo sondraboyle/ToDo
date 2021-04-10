@@ -10,6 +10,7 @@ const addTask = function(list){
            const newItem = document.createElement('li')
            newItem.className = 'collection-item'
            newItem.textContent = list.text
+           newItem.id = list.id
            document.querySelector('.collection').appendChild(newItem)
           
         
