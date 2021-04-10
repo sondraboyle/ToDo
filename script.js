@@ -9,7 +9,7 @@ const input =  document.querySelector('#task-form').addEventListener('submit', f
     console.log(e)
     if(e.target.elements.task.value != ''){
         taskList.push({
-            // id: uuidv4(),
+            id: uuidv4(),
             text: e.target.elements.task.value})
             e.target.elements.task.value = ''
             addTask(taskList)
