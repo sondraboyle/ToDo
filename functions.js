@@ -6,12 +6,14 @@ const renderIncomplete = function(array){
     })
     //add to the completed array
     completed.text = completed
+   
    let completedNum = completed.length //the number of incomplete
     //create HTML for incomplete
     document.querySelector('#listTitle').textContent = `Tasks (${completedNum} left)`
 
     console.log(completed)
-    console.log(completed.length)
+    
+    // console.log(completed.length)
 }
 
 
@@ -31,7 +33,7 @@ document.querySelector('#theList').appendChild(row)
 
 //create 1st column with input
 const column = document.createElement('div')
-column.className = "col s1"
+column.className = "col s1 checkedItem"
 row.appendChild(column)
 
  
@@ -74,9 +76,7 @@ row.appendChild(column3)
             link.innerHTML = "<i class='fa fa-remove'></i>" //icon
             document.querySelector( `#column3${rowId}`).appendChild(link);//append the link to the li
 
-//calculate incomplete
-renderIncomplete(taskList)
-            
+    renderIncomplete(taskList)
  }
 
 
