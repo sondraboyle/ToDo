@@ -1,6 +1,15 @@
 let taskList = []
 const filter = []
-
+//check for existing saved data
+const checkSaved = function(list){
+    let tasksJSON = localStorage.getItem('task')
+    if( tasksJSON !== null){
+        taskList = JSON.parse(tasksJSON)
+        console.log(taskList)
+        addTask(taskList)
+    }
+    }
+    
 checkSaved()
 
 //adding new tasks when you click submit
