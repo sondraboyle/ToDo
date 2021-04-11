@@ -1,16 +1,20 @@
 let taskList = []
 const filter = []
+const completed = []
+
 //check for existing saved data
 const checkSaved = function(list){
     let tasksJSON = localStorage.getItem('task')
     if( tasksJSON !== null){
         taskList = JSON.parse(tasksJSON)
-        console.log(taskList)
+        // console.log(taskList)
         addTask(taskList)
     }
     }
-    
+
 checkSaved()
+//calculate incomplete
+renderIncomplete(taskList)
 
 //adding new tasks when you click submit
 const input =  document.querySelector('#task-form').addEventListener('submit', function(e){
@@ -22,7 +26,7 @@ const input =  document.querySelector('#task-form').addEventListener('submit', f
             text: e.target.elements.task.value,
             completed: false})
             e.target.elements.task.value = ''
-            console.log(taskList)
+            // console.log(taskList)
             addTask(taskList)
              //save each task added to local storage as a string
              localStorage.setItem('task', JSON.stringify(taskList))
@@ -49,8 +53,8 @@ document.querySelector('#theList').addEventListener('click',function(e){
         return array.id === id
     })
     taskList.splice(taskId, 1)
-    console.log(taskList)
-    
+    // console.log(taskList)
+    renderIncomplete(taskList)
 
    //make local storage = the new array
    localStorage.setItem('task', JSON.stringify(taskList))
@@ -78,6 +82,3 @@ document.querySelector('#filter').addEventListener('input',function(e){
         // console.log(filter.text)
         renderFilter(taskList, input)
 })
-
-
-

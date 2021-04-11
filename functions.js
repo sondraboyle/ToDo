@@ -1,14 +1,29 @@
 
+//Incomplete
+const renderIncomplete = function(array){
+    let completed = array.filter(function(task){
+        return !task.completed
+    })
+    //add to the completed array
+    completed.text = completed
+   let completedNum = completed.length //the number of incomplete
+    //create HTML for incomplete
+    document.querySelector('#listTitle').textContent = `Tasks (${completedNum} left)`
+
+    console.log(completed)
+    console.log(completed.length)
+}
+
+
 
 //RENDER DOM
 const renderList = function(list){
-    //create new row
+//create new row
 //create unique row id
 let id = list.id
 let rowId = taskList.findIndex(function(array){
     return array.id === id
     })
-    console.log(id)
 const row = document.createElement('div')
 row.className = "row"
 row.setAttribute('id',`item${rowId}`)
@@ -35,7 +50,7 @@ const column2 = document.createElement('div')
 column2.className = "col s6"
 column2.setAttribute('id',`column${rowId}`)
 row.appendChild(column2)
-console.log(row)
+
 
 
             //create new list item
@@ -58,17 +73,16 @@ row.appendChild(column3)
             link.className = "delete-item secondary-content";
             link.innerHTML = "<i class='fa fa-remove'></i>" //icon
             document.querySelector( `#column3${rowId}`).appendChild(link);//append the link to the li
-            
 
-console.log(document.querySelector('#theList'))
-
+//calculate incomplete
+renderIncomplete(taskList)
             
  }
 
 
 //ADD TASK
 const addTask = function(list){
-    console.log(taskList)
+  
     
 
     //erase the whole list first so that the array is shown only once
@@ -99,3 +113,4 @@ renderList(list)
     })
 
 }
+
