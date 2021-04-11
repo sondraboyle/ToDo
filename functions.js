@@ -25,24 +25,20 @@ column.className = "col s1"
 row.appendChild(column)
 
  
-    //input
-    const checkbox = document.createElement('input')
-    checkbox.setAttribute('type', 'checkbox')
-    checkbox.id = 'completed'
-    checkLabel = document.createElement('label')
-    checkLabel.setAttribute('for','completed')
-    column.appendChild(checkbox)
-    column.appendChild(checkLabel)
+   //input
+   const checkbox = document.createElement('input')
+   checkbox.setAttribute('type', 'checkbox')
+   checkbox.setAttribute('id', `completed${rowId}`)
+   checkLabel = document.createElement('label')
+   checkLabel.setAttribute('for',`completed${rowId}`)
+   column.appendChild(checkbox)
+   column.appendChild(checkLabel)
+
 
 //create second column with text
 const column2 = document.createElement('div')
 column2.className = "col s6"
-//create unique id
-console.log(list.id)
-let taskId = taskList.findIndex(function(array){
-return array.id === id
-})
-column2.setAttribute('id',`column${taskId}`)
+column2.setAttribute('id',`column${rowId}`)
 row.appendChild(column2)
 console.log(row)
 
@@ -52,7 +48,7 @@ console.log(row)
            newItem.textContent = list.text
            newItem.id = list.id
            newItem.completed = list.completed
-           document.querySelector(`#column${taskId}`).appendChild(newItem)
+           document.querySelector(`#column${rowId}`).appendChild(newItem)
           
            
           
@@ -117,9 +113,9 @@ row.appendChild(column)
     //input
     const checkbox = document.createElement('input')
     checkbox.setAttribute('type', 'checkbox')
-    checkbox.id = 'completed'
+    checkbox.setAttribute('id', `completed${rowId}`)
     checkLabel = document.createElement('label')
-    checkLabel.setAttribute('for','completed')
+    checkLabel.setAttribute('for',`completed${rowId}`)
     column.appendChild(checkbox)
     column.appendChild(checkLabel)
 
