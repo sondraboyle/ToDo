@@ -37,34 +37,6 @@ const input =  document.querySelector('#task-form').addEventListener('submit', f
     
     })
 
-
-// //Delete when you press the button --> need to target the whole list, then use an if statement
-// document.querySelector('#theList').addEventListener('click',function(e){
-   
-//     if(e.target.parentElement.classList.contains('delete-item')){
-
-//         //find the id of the column, turn it to a string, take the last number and find the row with that number in the id
-//         let itemId = JSON.stringify(e.target.parentNode.parentNode.id)
-//         itemIdNum = itemId.slice(8,9)
-//         document.querySelector(`#item${itemIdNum}`).remove()
-  
-    
-//     //remove this item from the Array as well
-//    let id = e.target.parentElement.parentElement.id
-//     let taskId = taskList.findIndex(function (array){
-//         return array.id === id
-//     })
-//     taskList.splice(taskId, 1)
-//     // console.log(taskList)
-//     renderIncomplete(taskList)
-
-//    //make local storage = the new array
-//    localStorage.setItem('task', JSON.stringify(taskList))
-// }   
-// })
-
-
-
 //CLEAR ALL BUTTON
 document.querySelector('.clear-tasks').addEventListener('click',function(e){
     document.querySelector('#theList').innerHTML = ''
