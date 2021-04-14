@@ -44,6 +44,7 @@ row.appendChild(column)
    const checkbox = document.createElement('input')
    checkbox.setAttribute('type', 'checkbox')
    checkbox.setAttribute('id', `completed${rowId}`)
+   checkbox.setAttribute('class', 'filled-in')
    //previously checked stays checked
    if (taskList[rowId].completed == true ){
        checkbox.setAttribute('checked', 'checked')
@@ -52,7 +53,8 @@ row.appendChild(column)
    checkLabel.setAttribute('for',`completed${rowId}`)
    column.appendChild(checkbox)
    column.appendChild(checkLabel)
-        //event Listener
+        
+   //event Listener
         document.querySelector(`#completed${rowId}`).addEventListener('change', function(e){
        //get the text element
       

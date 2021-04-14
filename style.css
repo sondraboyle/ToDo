@@ -9,3 +9,13 @@
  .input-field input:focus + label {
     color:#e91e63 !important;
   }
+
+  [type="checkbox"].filled-in:checked + label:after{
+    border: 2px solid pink;
+    background-color: pink;
+}
+
+.secondary-content {
+    float: right;
+    color: pink;
+}
